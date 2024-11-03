@@ -1,7 +1,7 @@
 package umc.study.domain;
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.common.BaseEntity;
+import umc.study.common.BaseEntity;
 import umc.study.domain.mapping.MemberAgree;
 
 import java.util.ArrayList;

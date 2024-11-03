@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.Member;
 import umc.study.domain.Mission;
-import umc.study.domain.common.BaseEntity;
+import umc.study.common.BaseEntity;
 import umc.study.domain.enums.MissionStatus;
 
 @Entity
