@@ -5,7 +5,7 @@ plugins {
 	//	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10" // ⭐ Querydsl 플러그인 사용 X
 }
 
-group = 'com.example'
+group = 'umc.study'
 version = '1.0.0'
 sourceCompatibility = '17'
 
@@ -26,7 +26,7 @@ dependencies {
 	implementation 'org.hibernate.common:hibernate-commons-annotations:6.0.1.Final'
 	implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'  // Hibernate Validator 추가
 	implementation 'org.glassfish:jakarta.el:4.0.2'  // EL API 추가
-	implementation 'mysql:mysql-connector-java:8.0.33'  // MySQL 드라이버 추가
+	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	// queryDSL
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
