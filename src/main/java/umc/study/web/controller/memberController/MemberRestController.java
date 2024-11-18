@@ -6,6 +6,7 @@ import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.MemberConverter;
 import umc.study.domain.Member;
 import umc.study.service.memberService.MemberCommandService;
+import umc.study.web.dto.request.MemberMissionRequestDTO;
 import umc.study.web.dto.request.MemberRequestDTO;
 import umc.study.web.dto.response.MemberResponseDTO;
 import jakarta.validation.Valid;
@@ -22,5 +23,11 @@ public class MemberRestController {
     public ApiResponse<MemberResponseDTO.JoinResultDTO> join(@RequestBody @Valid MemberRequestDTO.JoinDto request){
         Member member = memberCommandService.joinMember(request);
         return ApiResponse.onSuccess(MemberConverter.toJoinResultDTO(member));
+    }
+
+    @PostMapping("/missions/challenge")
+    public ApiResponse<?> challengeMission(@RequestBody @Valid MemberMissionRequestDTO.CreateDTO dto) {
+        memberCommandService.challengeMission(dto);
+        return ApiResponse.onSuccess();
     }
 }
