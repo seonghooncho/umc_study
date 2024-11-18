@@ -12,7 +12,7 @@ import umc.study.domain.Store;
 
 public class StoreRequestDTO {
     @Getter
-    public class  CreateDTO{
+    public static class  CreateDTO{
         @NotBlank
         private String name;
         @NotBlank
@@ -29,7 +29,7 @@ public class StoreRequestDTO {
         }
     }
 
-    public class  UpdateStoreRequestDTO{
+    public static class UpdateStoreRequestDTO{
         private String name;
         private String address;
         private Float score;
