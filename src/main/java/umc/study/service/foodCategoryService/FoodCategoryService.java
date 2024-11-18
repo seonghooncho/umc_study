@@ -1,4 +1,4 @@
-package umc.study.service.memberService;
+package umc.study.service.foodCategoryService;
 
 import java.util.List;
 

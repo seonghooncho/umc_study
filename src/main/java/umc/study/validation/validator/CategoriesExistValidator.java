@@ -5,9 +5,9 @@ import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.study.apiPayload.code.status.ErrorStatus;
-import umc.study.service.memberService.FoodCategoryService;
+import umc.study.service.foodCategoryService.FoodCategoryService;
 import umc.study.validation.annotation.ExistCategories;
-import umc.study.repository.FoodCategoryRepository;
+
 import java.util.List;
 
 @Component

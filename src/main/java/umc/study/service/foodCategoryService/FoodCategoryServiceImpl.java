@@ -1,9 +1,8 @@
-package umc.study.service.memberService;
+package umc.study.service.foodCategoryService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import umc.study.repository.FoodCategoryRepository;
-import umc.study.repository.MemberRepository;
 
 import java.util.List;
 

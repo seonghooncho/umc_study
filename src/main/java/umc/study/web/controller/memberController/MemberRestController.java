@@ -1,4 +1,4 @@
-package umc.study.web.controller.TempController;
+package umc.study.web.controller.memberController;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
