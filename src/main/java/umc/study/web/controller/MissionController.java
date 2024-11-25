@@ -20,4 +20,10 @@ public class MissionController {
         missionCommandService.addMission(request);
         return ApiResponse.onSuccess();
     }
+
+    @PatchMapping("/{missionId}")
+    public ApiResponse<?> completeMission(@PathVariable Long missionId) {
+        missionCommandService.completeMission(missionId);
+        return ApiResponse.onSuccess();
+    }
 }

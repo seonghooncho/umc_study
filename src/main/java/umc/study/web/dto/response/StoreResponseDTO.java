@@ -1,27 +1,40 @@
 package umc.study.web.dto.response;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import umc.study.domain.Region;
 
-@Getter
-@Builder
-public class StoreResponseDTO {
-    private Long id;                // 가게 ID
-    private String name;            // 가게 이름
-    private String address;         // 가게 주소
-    private Float score;            // 가게 평점
-    private String regionName;      // 지역 이름
+import java.time.LocalDate;
+import java.util.List;
 
-    public static StoreResponseDTO fromEntity(umc.study.domain.Store store) {
-        return StoreResponseDTO.builder()
-                .id(store.getId())
-                .name(store.getName())
-                .address(store.getAddress())
-                .score(store.getScore() != null ? store.getScore() : null)
-                .regionName(store.getRegion() != null ? store.getRegion().getName() : null)
-                .build();
+public class StoreResponseDTO {
+
+    // ... 다른 코드들
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ReviewPreViewListDTO {
+        List<ReviewPreViewDTO> reviewList;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ReviewPreViewDTO {
+        String ownerNickname;
+        Float score;
+        String body;
+        LocalDate createdAt;
     }
 }
-

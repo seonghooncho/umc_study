@@ -16,6 +16,9 @@ public enum ErrorStatus implements BaseErrorCode {
     _UNAUTHORIZED(HttpStatus.UNAUTHORIZED,"COMMON401","인증이 필요합니다."),
     _FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "금지된 요청입니다."),
 
+    //page를 0미만을 요청했을 경우
+    PAGE_BAD_REQUEST(HttpStatus.BAD_REQUEST,"PAGE400","PAGE는 0보다 작을 수 없습니다."),
+
 
     // 멤버 관려 에러
     MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자가 없습니다."),
@@ -38,6 +41,7 @@ public enum ErrorStatus implements BaseErrorCode {
 
     //Mission
     MISSION_NOT_FOUND(HttpStatus.BAD_REQUEST, "MISSION4001", "없는 미션 입니다."),
+    MISSION_ALREADY_COMPLETE(HttpStatus.BAD_REQUEST, "MISSION4002", "완료한 미션 입니다."),
 
     //MemberMission
     MEMBER_MISSION_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "MEMBER_MISSION4001", "이미 진행중인 미션입니다."),
