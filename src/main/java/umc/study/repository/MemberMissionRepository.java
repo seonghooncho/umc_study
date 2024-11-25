@@ -19,5 +19,5 @@ public interface MemberMissionRepository extends JpaRepository<MemberMission, Lo
 
     @Query("SELECT mm.member FROM MemberMission mm " +
             "WHERE mm.mission = :mission")
-    Member findMemberByMission(@Param("memberId") Mission mission);
+    Member findMemberByMission(@Param("mission") Mission mission);
 }
