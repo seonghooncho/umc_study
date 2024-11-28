@@ -46,7 +46,8 @@ public class StoreRestController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006", description = "acess 토큰 모양이 이상함",content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     @Parameters({
-            @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다!")
+            @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다!"),
+            @Parameter(name = "page", description = "페이지 번호, 쿼리스트링 입니다!")
     })
     public ApiResponse<StoreResponseDTO.ReviewPreViewListDTO> getReviewList(@ExistStore @PathVariable(name = "storeId") Long storeId,
                                                                             @CheckPage @RequestParam(name = "page") Integer page){
@@ -55,12 +56,24 @@ public class StoreRestController {
     }
 
     @PostMapping
+    @Operation(summary = "가게 추가 API",description = "가게를 추가하는 api입니다")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "REGION4001", description = "없는 지역 입니다.")})
     public ApiResponse<?> addStore(@RequestParam @Valid StoreRequestDTO.CreateDTO dto) {
         Store store=  storeCommandService.addStore(dto);
         return ApiResponse.onSuccess();
     }
 
     @GetMapping("/{storeId}/missions")
+    @Operation(summary = "미션조회 API",description = "미션을 가게기준으로 조회하는 api입니다")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "PAGE400", description = "PAGE는 0보다 작을 수 없습니다.")})
+    @Parameters({
+            @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다!"),
+            @Parameter(name = "page", description = "페이지 번호, 쿼리스트링 입니다!")
+    })
     public ApiResponse<MissionResponseDTO.MissionListDTO> getMissionList(@ExistStore @PathVariable(name = "storeId") Long storeId,
                                                                                @CheckPage @RequestParam(name = "page") Integer page){
         Page<Mission> reviewList= storeQueryService.getMissionList(storeId,page);
