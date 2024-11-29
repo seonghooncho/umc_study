@@ -64,6 +64,9 @@ dependencies {
 
 	//thymeleaf에서도 security 돌아가도록
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
+
+	// Spring Security OAuth2 클라이언트 의존성 추가
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 }
 
 sourceSets {
